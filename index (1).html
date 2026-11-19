@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Happy Men's Day, AI Team 🎉</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;800;900&family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+@property --angle{syntax:'<angle>';initial-value:0deg;inherits:false}
+:root{
+  --bg:#06071A;
+  --bg2:#0D1030;
+  --violet:#7C5CFF;
+  --cyan:#22D3EE;
+  --pink:#FF4FD8;
+  --gold:#FFC53D;
+  --mint:#3DF5B5;
+  --text:#F2F3FF;
+  --dim:#A3A8D6;
+  --glass:rgba(255,255,255,.06);
+  --line:rgba(255,255,255,.12);
+  --grad:linear-gradient(100deg,var(--cyan),var(--violet) 45%,var(--pink) 75%,var(--gold));
+  --display:'Unbounded',system-ui,sans-serif;
+  --body:'Space Grotesk',system-ui,sans-serif;
+  --mono:'JetBrains Mono',ui-monospace,monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html.lenis,html.lenis body{height:auto}
+.lenis.lenis-smooth{scroll-behavior:auto!important}
+body{font-family:var(--body);background:var(--bg);color:var(--text);font-size:18px;line-height:1.6;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+button{font:inherit;cursor:pointer;color:inherit}
+:focus-visible{outline:2px solid var(--cyan);outline-offset:4px;border-radius:10px}
+.wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+.grad-text{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;background-size:200% 100%;animation:shine 6s linear infinite}
+
+/* ambient background: aurora + grain */
+.aurora{position:fixed;inset:0;z-index:-2;overflow:hidden;pointer-events:none}
+.aurora i{position:absolute;border-radius:50%;filter:blur(90px);opacity:.45;animation:drift 22s ease-in-out infinite alternate}
+.aurora i:nth-child(1){width:55vw;height:55vw;background:var(--violet);top:-15vw;left:-10vw}
+.aurora i:nth-child(2){width:45vw;height:45vw;background:var(--cyan);top:30vh;right:-15vw;animation-delay:-6s;opacity:.28}
+.aurora i:nth-child(3){width:40vw;height:40vw;background:var(--pink);bottom:-15vw;left:25vw;animation-delay:-12s;opacity:.25}
+.grain{position:fixed;inset:-50%;z-index:-1;pointer-events:none;opacity:.07;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  animation:grain 1.2s steps(4) infinite}
+.cursor{position:fixed;left:0;top:0;width:380px;height:380px;margin:-190px 0 0 -190px;border-radius:50%;pointer-events:none;z-index:0;
+  background:radial-gradient(circle,rgba(124,92,255,.22),transparent 65%);mix-blend-mode:screen}
+@media (hover:none){.cursor{display:none}}
+
+/* nav */
+nav{position:fixed;top:16px;left:50%;transform:translateX(-50%);z-index:50;display:flex;align-items:center;gap:6px;
+  padding:8px 8px 8px 20px;border-radius:999px;background:rgba(13,16,48,.55);backdrop-filter:blur(18px) saturate(160%);-webkit-backdrop-filter:blur(18px) saturate(160%);border:1px solid var(--line);white-space:nowrap}
+.brand{font-family:var(--display);font-weight:800;font-size:15px;margin-right:10px}
+nav a.lnk{font-size:15px;padding:8px 14px;border-radius:999px;color:var(--dim);transition:color .2s,background .2s}
+nav a.lnk:hover{color:var(--text);background:var(--glass)}
+nav .cta{background:var(--text);color:var(--bg);font-weight:700;padding:9px 16px;border-radius:999px;font-size:15px;border:none}
+@media (max-width:760px){nav a.lnk{display:none}}
+
+/* hero */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;padding:120px 0 80px;overflow:hidden}
+#net{position:absolute;inset:0;width:100%;height:100%;z-index:0}
+.hero .wrap{position:relative;z-index:1;width:100%}
+.badge{display:inline-flex;align-items:center;gap:10px;padding:8px 16px 8px 8px;border-radius:999px;background:var(--glass);border:1px solid var(--line);backdrop-filter:blur(10px);font-size:15px}
+.badge b{background:var(--grad);color:#0b0b20;padding:3px 10px;border-radius:999px;font-size:13px}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--mint);box-shadow:0 0 12px var(--mint);animation:pulse 1.6s infinite}
+h1{font-family:var(--display);font-weight:900;font-size:clamp(46px,9.4vw,140px);line-height:.95;letter-spacing:-.04em;margin:28px 0 0}
+h1 .line{display:block;overflow:hidden;padding-bottom:.06em}
+h1 .ch{display:inline-block;will-change:transform}
+.hero-sub{max-width:36em;font-size:clamp(17px,1.6vw,21px);color:var(--dim);margin-top:28px}
+.hero-sub strong{color:var(--text)}
+.actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:38px}
+.btn{position:relative;border:none;border-radius:16px;padding:17px 28px;font-weight:700;font-size:17px;display:inline-flex;align-items:center;gap:10px}
+.btn-primary{background:var(--grad);background-size:200% 100%;color:#0a0a22;box-shadow:0 10px 40px -10px rgba(124,92,255,.8);animation:shine 6s linear infinite}
+.btn-glass{background:var(--glass);border:1px solid var(--line);backdrop-filter:blur(10px)}
+.scroll-hint{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);z-index:1;font-size:14px;color:var(--dim);display:flex;flex-direction:column;align-items:center;gap:8px}
+.scroll-hint span{width:24px;height:38px;border:2px solid var(--line);border-radius:14px;position:relative}
+.scroll-hint span::after{content:'';position:absolute;left:50%;top:7px;width:4px;height:8px;margin-left:-2px;border-radius:2px;background:var(--text);animation:wheel 1.6s infinite}
+
+/* marquee */
+.marquee{border-block:1px solid var(--line);background:rgba(255,255,255,.025);overflow:hidden;padding:22px 0;transform:rotate(-2deg);margin:30px -20px}
+.marquee-track{display:flex;gap:48px;width:max-content;animation:marq 32s linear infinite;font-family:var(--display);font-weight:600;font-size:clamp(22px,3vw,34px);white-space:nowrap}
+.marquee-track span:nth-child(even){-webkit-text-stroke:1px var(--dim);color:transparent}
+
+/* section heads */
+section{position:relative;padding:120px 0}
+.kicker{font-family:var(--mono);font-size:14px;color:var(--cyan)}
+h2{font-family:var(--display);font-weight:800;font-size:clamp(34px,5.6vw,76px);line-height:1;letter-spacing:-.035em;margin-top:14px}
+.lede{color:var(--dim);max-width:34em;margin-top:18px}
+.reveal{will-change:transform,opacity}
+
+/* Intuit family */
+.fam-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:48px}
+.fam{border-radius:24px;padding:26px;background:linear-gradient(160deg,rgba(255,255,255,.08),rgba(255,255,255,.015));border:1px solid var(--line);transition:transform .25s,border-color .25s}
+.fam:hover{transform:translateY(-6px);border-color:rgba(34,211,238,.6)}
+.fam span{font-size:44px;line-height:1}
+.fam h3{font-family:var(--display);font-size:20px;font-weight:800;margin:14px 0 6px}
+.fam p{color:var(--dim);font-size:16px}
+.fam-banner{margin-top:28px;border-radius:30px;padding:clamp(28px,5vw,52px);background:var(--grad);color:#0a0a22;display:grid;grid-template-columns:auto 1fr;gap:10px 28px;align-items:start}
+.fam-banner .fb-emoji{font-size:72px;line-height:1;grid-row:span 2}
+.fam-banner p{font-size:clamp(18px,1.8vw,22px);font-weight:500}
+.fam-banner strong{font-family:var(--display);font-weight:800}
+.fam-banner .sig{font-size:17px;margin-top:6px}
+@media (max-width:900px){.fam-grid{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.fam-grid{grid-template-columns:1fr}.fam-banner{grid-template-columns:1fr}.fam-banner .fb-emoji{grid-row:auto}}
+
+/* release notes: horizontal scroll */
+.hscroll{padding:0;overflow:hidden}
+.hscroll-inner{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:110px 0 70px}
+.h-track{display:flex;gap:24px;padding:48px 24px 0 max(24px,calc((100vw - 1200px)/2 + 24px));width:max-content}
+.rcard{width:min(400px,80vw);flex:none;border-radius:28px;padding:30px;background:linear-gradient(160deg,rgba(255,255,255,.09),rgba(255,255,255,.02));border:1px solid var(--line);backdrop-filter:blur(14px);display:flex;flex-direction:column;gap:18px;min-height:300px}
+.rcard .em{font-size:64px;line-height:1;filter:drop-shadow(0 10px 24px rgba(124,92,255,.5))}
+.rcard p{font-size:19px}
+.rtag{font-family:var(--mono);font-size:13px;font-weight:600;padding:4px 10px;border-radius:8px;align-self:flex-start}
+.t-fix{background:rgba(255,79,120,.16);color:#FF8DA8}.t-new{background:rgba(61,245,181,.14);color:var(--mint)}.t-perf{background:rgba(255,197,61,.15);color:var(--gold)}
+.rcard.end{background:var(--grad);color:#0a0a22;justify-content:center}
+.rcard.end h3{font-family:var(--display);font-size:34px;line-height:1.05}
+@media (max-width:768px){.h-track{flex-direction:column;width:auto;padding:36px 24px 0}.rcard{width:100%;min-height:0}}
+
+/* quote machine */
+.qbox{position:relative;margin-top:48px;border-radius:30px;padding:2px;background:conic-gradient(from var(--angle),var(--cyan),var(--violet),var(--pink),var(--gold),var(--cyan));animation:spin 5s linear infinite}
+.qinner{border-radius:28px;background:rgba(9,10,34,.94);padding:clamp(26px,4vw,52px)}
+.qtop{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;font-family:var(--mono);font-size:14px;color:var(--dim)}
+.qtop .lights{display:flex;gap:7px}.qtop .lights i{width:12px;height:12px;border-radius:50%;background:#FF5F7E}.qtop .lights i:nth-child(2){background:var(--gold)}.qtop .lights i:nth-child(3){background:var(--mint)}
+.quote{font-family:var(--display);font-weight:600;font-size:clamp(24px,3.4vw,44px);line-height:1.18;letter-spacing:-.02em;margin:30px 0 16px;min-height:2.5em}
+.quote .cur{display:inline-block;width:.5em;height:.9em;background:var(--cyan);vertical-align:-.08em;margin-left:4px;animation:blink 1s steps(1) infinite}
+.qmeta{font-family:var(--mono);font-size:14px;color:var(--dim)}
+.qactions{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+
+/* bento */
+.bento{display:grid;grid-template-columns:repeat(6,1fr);grid-auto-rows:minmax(180px,auto);gap:18px;margin-top:52px}
+.tile{position:relative;border-radius:26px;padding:28px;background:linear-gradient(160deg,rgba(255,255,255,.08),rgba(255,255,255,.015));border:1px solid var(--line);overflow:hidden;transform-style:preserve-3d}
+.tile::before{content:'';position:absolute;inset:0;background:radial-gradient(400px circle at var(--mx,50%) var(--my,0%),rgba(124,92,255,.22),transparent 60%);opacity:0;transition:opacity .3s;pointer-events:none}
+.tile:hover::before{opacity:1}
+.tile .num{font-family:var(--display);font-weight:900;font-size:clamp(44px,5.5vw,76px);line-height:1;letter-spacing:-.04em}
+.tile .lbl{color:var(--dim);margin-top:10px;font-size:16px}
+.tile .em{font-size:40px;position:absolute;top:22px;right:24px}
+.s2{grid-column:span 2}.s3{grid-column:span 3}.s4{grid-column:span 4}.r2{grid-row:span 2}
+.tile.chart h3{font-family:var(--display);font-size:22px;font-weight:600}
+.tile.chart svg{width:100%;height:auto;margin-top:18px}
+.tile.big-love{background:var(--grad);color:#0a0a22;display:flex;flex-direction:column;justify-content:flex-end}
+.tile.big-love .num{font-size:clamp(60px,8vw,110px)}
+.tile.big-love .lbl{color:#1b1640;font-weight:500}
+.draw{stroke-dasharray:1200;stroke-dashoffset:1200}
+@media (max-width:900px){.bento{grid-template-columns:repeat(2,1fr)}.s2,.s3,.s4{grid-column:span 2}.r2{grid-row:auto}.tile.half{grid-column:span 1}}
+
+/* awards */
+.awards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:52px}
+.award{height:270px;background:none;border:none;text-align:left;perspective:1000px;padding:0}
+.award-inner{position:relative;width:100%;height:100%;transition:transform .7s cubic-bezier(.2,.9,.2,1);transform-style:preserve-3d}
+.award.flipped .award-inner{transform:rotateY(180deg)}
+.face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:26px;padding:28px;display:flex;flex-direction:column;justify-content:space-between;border:1px solid var(--line)}
+.front{background:linear-gradient(160deg,rgba(255,255,255,.09),rgba(255,255,255,.02));backdrop-filter:blur(12px)}
+.front .big{font-size:64px;line-height:1}
+.front h3{font-family:var(--display);font-size:22px;font-weight:800;line-height:1.15}
+.front small{color:var(--dim);font-size:14px;display:flex;align-items:center;gap:6px}
+.back{background:var(--grad);color:#0a0a22;transform:rotateY(180deg);font-size:18px;font-weight:500;justify-content:center;gap:10px}
+.back strong{font-family:var(--display);font-size:20px}
+@media (max-width:900px){.awards{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.awards{grid-template-columns:1fr}}
+
+/* cheer wall */
+.cheer{text-align:center}
+.cheer .lede{margin-inline:auto}
+.cheer-btns{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;margin-top:46px}
+.cheer-btn{background:var(--glass);border:1px solid var(--line);backdrop-filter:blur(10px);border-radius:22px;padding:16px 18px;min-width:112px;transition:transform .15s,border-color .2s,box-shadow .2s}
+.cheer-btn:hover{border-color:rgba(124,92,255,.7);box-shadow:0 0 30px -6px rgba(124,92,255,.7);transform:translateY(-4px)}
+.cheer-btn:active{transform:scale(.9)}
+.cheer-btn .em{font-size:42px;display:block;line-height:1.2}
+.cheer-btn .ct{font-family:var(--mono);font-size:14px;color:var(--mint)}
+.total{margin-top:34px;font-family:var(--display);font-size:clamp(22px,3vw,30px)}
+
+/* closing */
+.note{border-radius:34px;padding:clamp(32px,6vw,72px);background:linear-gradient(160deg,rgba(124,92,255,.22),rgba(34,211,238,.08) 60%,rgba(255,79,216,.12));border:1px solid var(--line);display:grid;grid-template-columns:1.2fr 1fr;gap:48px;align-items:center}
+.note p{font-size:20px;margin-top:20px;color:#D9DBF7}
+.checklist{list-style:none;display:grid;gap:12px}
+.checklist li{background:rgba(6,7,26,.5);border:1px solid var(--line);padding:16px 20px;border-radius:18px;font-size:18px}
+@media (max-width:860px){.note{grid-template-columns:1fr}}
+
+footer{border-top:1px solid var(--line);margin-top:40px;padding:40px 0 50px}
+.foot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center;color:var(--dim);font-size:15px}
+.foot .big{font-family:var(--display);font-weight:900;font-size:clamp(40px,10vw,150px);letter-spacing:-.05em;line-height:.9;width:100%;margin-bottom:28px;opacity:.95}
+.copy b{color:var(--text)}
+
+.toast{position:fixed;left:50%;bottom:28px;transform:translate(-50%,140px);background:rgba(13,16,48,.85);backdrop-filter:blur(14px);border:1px solid var(--line);color:var(--text);padding:13px 22px;border-radius:14px;font-weight:600;transition:transform .35s cubic-bezier(.2,.9,.2,1);z-index:100}
+.toast.show{transform:translate(-50%,0)}
+
+@keyframes shine{to{background-position:200% 0}}
+@keyframes drift{to{transform:translate(8vw,6vh) scale(1.15)}}
+@keyframes grain{0%{transform:translate(0,0)}25%{transform:translate(-5%,3%)}50%{transform:translate(4%,-4%)}75%{transform:translate(-3%,5%)}}
+@keyframes pulse{50%{opacity:.35}}
+@keyframes wheel{0%{opacity:1;transform:translateY(0)}100%{opacity:0;transform:translateY(12px)}}
+@keyframes marq{to{transform:translateX(-50%)}}
+@keyframes spin{to{--angle:360deg}}
+@keyframes blink{50%{opacity:0}}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}
+}
+</style>
+</head>
+<body>
+<div class="aurora" aria-hidden="true"><i></i><i></i><i></i></div>
+<div class="grain" aria-hidden="true"></div>
+<div class="cursor" aria-hidden="true"></div>
+
+<nav aria-label="Main">
+  <span class="brand">Intuit AI Team 🤖</span>
+  <a class="lnk" href="#family">Intuit family</a>
+  <a class="lnk" href="#release">Shipped</a>
+  <a class="lnk" href="#quotes">Quotes</a>
+  <a class="lnk" href="#stats">Stats</a>
+  <a class="lnk" href="#awards">Awards</a>
+  <button class="cta" id="navConfetti">🎉 Celebrate</button>
+</nav>
+
+<!-- HERO -->
+<header class="hero" id="top">
+  <canvas id="net" aria-hidden="true"></canvas>
+  <div class="wrap">
+    <div class="badge reveal-hero"><b>19 Nov 2026</b><span class="dot"></span> International Men's Day is live</div>
+    <h1 aria-label="Happy Men's Day, legends of Intuit AI">
+      <span class="line"><span class="split">Happy Men's</span></span>
+      <span class="line"><span class="split grad-text">Day, legends</span></span>
+      <span class="line"><span class="split">of AI 🤖</span></span>
+    </h1>
+    <p class="hero-sub reveal-hero">To the men of the <strong>Intuit AI Team</strong>, who debug at midnight, babysit GPUs, rename <em>final_v7_REAL.ipynb</em> with dignity and still show up to stand-up smiling. Today the model is trained on one thing: appreciation. 🫡 And from all of us, a big Happy Men's Day to <strong>every man in the Intuit family</strong>. 💙</p>
+    <div class="actions reveal-hero">
+      <button class="btn btn-primary magnetic" id="confettiBtn">Throw confetti 🎉</button>
+      <a class="btn btn-glass magnetic" href="#quotes">Get a funny quote 😂</a>
+    </div>
+  </div>
+  <div class="scroll-hint" aria-hidden="true"><span></span>scroll</div>
+</header>
+
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>💪 Hard work</span><span>☕ Coffee-powered</span><span>🚀 Ship it</span><span>🧠 Big brains</span><span>🐛 Bug slayers</span><span>🔥 GPU warmers</span><span>🤝 Team first</span><span>😎 Legends</span>
+    <span>💪 Hard work</span><span>☕ Coffee-powered</span><span>🚀 Ship it</span><span>🧠 Big brains</span><span>🐛 Bug slayers</span><span>🔥 GPU warmers</span><span>🤝 Team first</span><span>😎 Legends</span>
+  </div>
+</div>
+
+<!-- WISH TO INTUIT FAMILY -->
+<section id="family">
+  <div class="wrap">
+    <div class="kicker">from the AI Team, with love 💙</div>
+    <h2 class="reveal">Happy Men's Day to every man of the <span class="grad-text">Intuit family</span> 🎉</h2>
+    <p class="lede reveal">This celebration isn't only for us. The Intuit AI Team sends warm wishes to every man across Intuit: the builders, the helpers, the planners and the quiet heroes who make it all work. Our models are smart, but you are the real intelligence. 🧠💪</p>
+    <div class="fam-grid">
+      <div class="fam reveal"><span>👨‍💻</span><h3>Engineers</h3><p>For turning coffee into code and outages into "all good now". ☕</p></div>
+      <div class="fam reveal"><span>🎨</span><h3>Designers</h3><p>For moving that button 2 px to the left. Again. It looks perfect. ✨</p></div>
+      <div class="fam reveal"><span>📋</span><h3>Product folks</h3><p>For saying "small ask" and somehow making it ship. 🚀</p></div>
+      <div class="fam reveal"><span>🎧</span><h3>Customer heroes</h3><p>For staying calm and kind on every call. You're our real superpower. 🦸‍♂️</p></div>
+      <div class="fam reveal"><span>📈</span><h3>Sales &amp; marketing</h3><p>For telling the world how awesome we are. Mostly true. 😉</p></div>
+      <div class="fam reveal"><span>🧾</span><h3>Finance, HR, ops &amp; everyone</h3><p>For keeping the lights on, the laptops working and the snacks coming. 🍪</p></div>
+    </div>
+    <div class="fam-banner reveal">
+      <div class="fb-emoji" aria-hidden="true">🤝</div>
+      <p><strong>One family, one team.</strong> To every father, brother, son, friend and colleague at Intuit: thank you for your hard work, your kindness and your strength. Stay healthy, stay happy and keep being legends. Happy International Men's Day! 🎉💙</p>
+      <p class="sig">With respect and a lot of emojis,<br><b>The Intuit AI Team 🤖</b></p>
+    </div>
+  </div>
+</section>
+
+<!-- RELEASE NOTES -->
+<section class="hscroll" id="release">
+  <div class="hscroll-inner">
+    <div class="wrap">
+      <div class="kicker">men@19.11.2026 · stable release 📦</div>
+      <h2 class="reveal">What the legends shipped this year</h2>
+      <p class="lede reveal">Every great model ships with a changelog. Here's ours, mostly written before lunch and definitely after the third coffee.</p>
+    </div>
+    <div class="h-track">
+      <article class="rcard"><span class="rtag t-fix">fix</span><div class="em">🐛</div><p>Squashed the bug that only appeared in production, on a Friday, at 6:59 pm.</p></article>
+      <article class="rcard"><span class="rtag t-new">new</span><div class="em">🧠</div><p>Wrote prompts so good the model said "thank you" back.</p></article>
+      <article class="rcard"><span class="rtag t-perf">perf</span><div class="em">⚡</div><p>Cut inference latency by 40%. Lunch break latency: unchanged.</p></article>
+      <article class="rcard"><span class="rtag t-fix">fix</span><div class="em">🧹</div><p>Cleaned a dataset with 3 date formats, 2 languages and 1 mystery column called "x".</p></article>
+      <article class="rcard"><span class="rtag t-perf">perf</span><div class="em">🔥</div><p>Kept the GPUs warm enough to heat the whole office all winter.</p></article>
+      <article class="rcard"><span class="rtag t-new">new</span><div class="em">🤝</div><p>Helped a teammate at 11 pm without being asked. Biggest feature of the year.</p></article>
+      <article class="rcard end"><h3>Next release: even more legendary. 🚀</h3></article>
+    </div>
+  </div>
+</section>
+
+<!-- QUOTES -->
+<section id="quotes">
+  <div class="wrap">
+    <div class="kicker">inference endpoint · /funny 🎲</div>
+    <h2 class="reveal">The funny quote generator</h2>
+    <p class="lede reveal">Powered by a highly advanced model called <em>Math.random()</em>. Hit generate whenever you need a laugh.</p>
+    <div class="qbox reveal">
+      <div class="qinner" role="region" aria-live="polite" aria-label="Funny quote">
+        <div class="qtop"><span class="lights" aria-hidden="true"><i></i><i></i><i></i></span><span>&gt; generate --mood=happy --team=intuit_ai</span></div>
+        <p class="quote" id="quote">Behind every successful model is a man who restarted the kernel 47 times. 🔄</p>
+        <div class="qmeta" id="qmeta">confidence: 99.9% · temperature: 0.7 · tokens: ☕☕☕</div>
+        <div class="qactions">
+          <button class="btn btn-primary magnetic" id="genBtn">Generate another 😂</button>
+          <button class="btn btn-glass" id="copyBtn">Copy for team chat 📋</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS BENTO -->
+<section id="stats">
+  <div class="wrap">
+    <div class="kicker">eval results · mostly verified 📊</div>
+    <h2 class="reveal">Our training stats</h2>
+    <p class="lede reveal">Collected by a very scientific method: asking around the office.</p>
+    <div class="bento">
+      <div class="tile s2 half tilt"><span class="em">☕</span><div class="num" data-count="1287">0</div><div class="lbl">cups of coffee turned into code</div></div>
+      <div class="tile s2 half tilt"><span class="em">🔁</span><div class="num" data-count="342">0</div><div class="lbl">"let me just rerun it once more"</div></div>
+      <div class="tile s2 tilt"><span class="em">🙋‍♂️</span><div class="num" data-count="96">0</div><div class="lbl">"it works on my machine" moments</div></div>
+      <div class="tile s4 r2 chart">
+        <h3>Team stress vs. teamwork 📉</h3>
+        <p class="lbl">The more we help each other, the more stress drops and smiles rise. Science. 😄</p>
+        <svg viewBox="0 0 800 300" role="img" aria-label="Chart: stress falls and smiles rise from January to November">
+          <defs>
+            <linearGradient id="g1" x1="0" x2="1"><stop offset="0" stop-color="#22D3EE"/><stop offset=".5" stop-color="#7C5CFF"/><stop offset="1" stop-color="#FF4FD8"/></linearGradient>
+            <linearGradient id="fill" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#7C5CFF" stop-opacity=".35"/><stop offset="1" stop-color="#7C5CFF" stop-opacity="0"/></linearGradient>
+          </defs>
+          <g stroke="rgba(255,255,255,.08)"><line x1="30" y1="60" x2="780" y2="60"/><line x1="30" y1="140" x2="780" y2="140"/><line x1="30" y1="220" x2="780" y2="220"/></g>
+          <path d="M30 250 C 180 240, 260 170, 370 140 S 600 60, 780 36 L780 270 L30 270Z" fill="url(#fill)" class="area" opacity="0"/>
+          <path class="draw" d="M30 40 C 160 52, 230 150, 340 165 S 540 228, 780 240" fill="none" stroke="#FF6B8B" stroke-width="5" stroke-linecap="round"/>
+          <path class="draw" d="M30 250 C 180 240, 260 170, 370 140 S 600 60, 780 36" fill="none" stroke="url(#g1)" stroke-width="6" stroke-linecap="round"/>
+          <text x="40" y="28" font-family="Space Grotesk" font-size="18" fill="#FF8DA8">😵 stress</text>
+          <text x="660" y="24" font-family="Space Grotesk" font-size="18" fill="#3DF5B5">😁 smiles</text>
+          <text x="30" y="294" font-family="Space Grotesk" font-size="15" fill="#A3A8D6">Jan</text>
+          <text x="746" y="294" font-family="Space Grotesk" font-size="15" fill="#A3A8D6">Nov</text>
+        </svg>
+      </div>
+      <div class="tile s2 tilt"><span class="em">🌙</span><div class="num" data-count="58">0</div><div class="lbl">late-night "quick fixes"</div></div>
+      <div class="tile s2 big-love tilt"><div class="num">∞</div><div class="lbl">💪 hard work, patience and good vibes</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- AWARDS -->
+<section id="awards">
+  <div class="wrap">
+    <div class="kicker">official honours 🏆</div>
+    <h2 class="reveal">Intuit AI Team awards</h2>
+    <p class="lede reveal">Tap a card to see who deserves it. (Hint: all of you.)</p>
+    <div class="awards">
+      <button class="award"><div class="award-inner">
+        <div class="face front"><div class="big">🧙‍♂️</div><div><h3>Prompt Whisperer</h3><small>👆 Tap to reveal</small></div></div>
+        <div class="face back"><strong>For the man who</strong>gets a perfect answer from any model with just "please" and "think step by step". ✨</div>
+      </div></button>
+      <button class="award"><div class="award-inner">
+        <div class="face front"><div class="big">🐛🔨</div><div><h3>Bug Exterminator</h3><small>👆 Tap to reveal</small></div></div>
+        <div class="face back"><strong>For the man who</strong>finds the missing comma on line 1,204 before anyone finishes saying "weird…". 🕵️</div>
+      </div></button>
+      <button class="award"><div class="award-inner">
+        <div class="face front"><div class="big">🤗🖥️</div><div><h3>GPU Hugger</h3><small>👆 Tap to reveal</small></div></div>
+        <div class="face back"><strong>For the man who</strong>checks nvidia-smi more often than his own messages. Out of memory? Never heard of it. 🔥</div>
+      </div></button>
+      <button class="award"><div class="award-inner">
+        <div class="face front"><div class="big">🎰</div><div><h3>Hyperparameter Gambler</h3><small>👆 Tap to reveal</small></div></div>
+        <div class="face back"><strong>For the man who</strong>changed the learning rate from 0.001 to 0.0011 and called it "research". It worked. 🎯</div>
+      </div></button>
+      <button class="award"><div class="award-inner">
+        <div class="face front"><div class="big">🧘‍♂️</div><div><h3>Meeting Survivor</h3><small>👆 Tap to reveal</small></div></div>
+        <div class="face back"><strong>For the man who</strong>survived a "quick 5-minute sync" that lasted 1 hour 20 minutes, camera on, still smiling. 😅</div>
+      </div></button>
+      <button class="award"><div class="award-inner">
+        <div class="face front"><div class="big">🦸‍♂️</div><div><h3>Silent Hero</h3><small>👆 Tap to reveal</small></div></div>
+        <div class="face back"><strong>For every man who</strong>quietly fixed things, mentored juniors and never asked for credit. We see you. 💙</div>
+      </div></button>
+    </div>
+  </div>
+</section>
+
+<!-- CHEER -->
+<section class="cheer" id="cheer">
+  <div class="wrap">
+    <div class="kicker">no rate limits on appreciation 💌</div>
+    <h2 class="reveal">Send the team some love</h2>
+    <p class="lede reveal">Smash these buttons. Every 25 cheers drops a confetti storm.</p>
+    <div class="cheer-btns" id="cheerBtns"></div>
+    <p class="total">Cheers sent: <span class="grad-text" id="total">0</span> 🎊</p>
+  </div>
+</section>
+
+<!-- CLOSING -->
+<section id="note" style="padding-top:40px">
+  <div class="wrap">
+    <div class="note reveal">
+      <div>
+        <div class="kicker">a real message · zero hallucination 💙</div>
+        <h2 style="font-size:clamp(32px,4.4vw,58px)">Thank you, legends.</h2>
+        <p>Thank you for the late nights, the patient explanations, the jokes in code reviews and the way you carry this team. You make hard problems feel possible. Today, please take care of the most important system of all: you.</p>
+      </div>
+      <ul class="checklist">
+        <li>💧 Drink water (coffee doesn't count 😜)</li>
+        <li>🧘 Stretch after every long training run</li>
+        <li>😴 Sleep is a feature, not a bug</li>
+        <li>🤝 Talk to someone when things feel heavy</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot">
+    <div class="big grad-text">Happy Men's Day 🎉</div>
+    <div class="copy">© 2026 <b>Intuit AI Team</b>. All rights reserved.</div>
+    <div>Wishing every man of the Intuit family a happy Men's Day · Made with 💙, ☕ and a little AI</div>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status"></div>
+
+<!-- Open-source libraries -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
+
+<script>
+const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const hasGSAP = typeof gsap !== 'undefined';
+const finePointer = window.matchMedia('(hover:hover) and (pointer:fine)').matches;
+
+/* ---------- Split headline into chars ---------- */
+document.querySelectorAll('.split').forEach(el=>{
+  const txt = el.textContent; el.textContent='';
+  txt.split(' ').forEach((word,wi,arr)=>{
+    const w=document.createElement('span'); w.style.display='inline-block'; w.style.whiteSpace='nowrap';
+    Array.from(word).forEach(c=>{ const s=document.createElement('span'); s.className='ch'; s.textContent=c; w.appendChild(s); });
+    el.appendChild(w); if(wi<arr.length-1) el.appendChild(document.createTextNode(' '));
+  });
+  el.setAttribute('aria-hidden','true');
+});
+
+/* ---------- Confetti (canvas-confetti, with emoji shapes) ---------- */
+let emojiShapes=null;
+function shapes(){
+  if(emojiShapes||typeof confetti==='undefined'||!confetti.shapeFromText) return emojiShapes;
+  emojiShapes=['🎉','💙','🚀','💪','🤖','☕','🏆'].map(t=>confetti.shapeFromText({text:t,scalar:2}));
+  return emojiShapes;
+}
+function party(x=.5,y=.6,big=false){
+  if(reduce||typeof confetti==='undefined') return;
+  const colors=['#22D3EE','#7C5CFF','#FF4FD8','#FFC53D','#3DF5B5'];
+  confetti({particleCount:big?160:90,spread:big?120:80,startVelocity:big?55:42,origin:{x,y},colors,zIndex:200});
+  const sh=shapes(); if(sh) confetti({particleCount:big?30:16,spread:100,startVelocity:40,origin:{x,y},shapes:sh,scalar:2,zIndex:200});
+}
+function sideCannons(){
+  if(reduce||typeof confetti==='undefined') return;
+  const end=Date.now()+1200, colors=['#22D3EE','#7C5CFF','#FF4FD8','#FFC53D'];
+  (function frame(){
+    confetti({particleCount:4,angle:60,spread:60,origin:{x:0,y:.7},colors,zIndex:200});
+    confetti({particleCount:4,angle:120,spread:60,origin:{x:1,y:.7},colors,zIndex:200});
+    if(Date.now()<end) requestAnimationFrame(frame);
+  })();
+}
+function burstAt(el,emoji){
+  if(reduce||typeof confetti==='undefined') return;
+  const r=el.getBoundingClientRect();
+  const o={x:(r.left+r.width/2)/innerWidth,y:(r.top+r.height/2)/innerHeight};
+  const opts={particleCount:12,spread:70,startVelocity:28,gravity:.9,scalar:2.2,ticks:90,origin:o,zIndex:200};
+  if(confetti.shapeFromText) opts.shapes=[confetti.shapeFromText({text:emoji,scalar:2.2})]; else opts.colors=['#7C5CFF','#22D3EE'];
+  confetti(opts);
+}
+document.getElementById('confettiBtn').addEventListener('click',e=>{ party(.5,.65,true); sideCannons(); });
+document.getElementById('navConfetti').addEventListener('click',()=>{ party(.5,.3,true); });
+
+/* ---------- Three.js neural network hero ---------- */
+(function net(){
+  if(typeof THREE==='undefined') return;
+  const canvas=document.getElementById('net');
+  const renderer=new THREE.WebGLRenderer({canvas,alpha:true,antialias:true});
+  renderer.setPixelRatio(Math.min(devicePixelRatio,2));
+  const scene=new THREE.Scene();
+  const camera=new THREE.PerspectiveCamera(55,1,.1,100); camera.position.z=7.5;
+  const group=new THREE.Group(); scene.add(group);
+  const N=innerWidth<700?110:190, R=3.1, pts=[];
+  const pos=new Float32Array(N*3), col=new Float32Array(N*3);
+  const palette=[new THREE.Color('#22D3EE'),new THREE.Color('#7C5CFF'),new THREE.Color('#FF4FD8'),new THREE.Color('#FFC53D')];
+  for(let i=0;i<N;i++){
+    const phi=Math.acos(1-2*(i+.5)/N), th=Math.PI*(1+Math.sqrt(5))*i;
+    const r=R*(.82+Math.random()*.28);
+    const v=new THREE.Vector3(r*Math.sin(phi)*Math.cos(th),r*Math.sin(phi)*Math.sin(th),r*Math.cos(phi));
+    pts.push(v); pos.set([v.x,v.y,v.z],i*3);
+    const c=palette[i%4]; col.set([c.r,c.g,c.b],i*3);
+  }
+  const g=new THREE.BufferGeometry();
+  g.setAttribute('position',new THREE.BufferAttribute(pos,3));
+  g.setAttribute('color',new THREE.BufferAttribute(col,3));
+  const dot=document.createElement('canvas'); dot.width=dot.height=64;
+  const cx=dot.getContext('2d'); const gr=cx.createRadialGradient(32,32,0,32,32,32);
+  gr.addColorStop(0,'rgba(255,255,255,1)'); gr.addColorStop(.35,'rgba(255,255,255,.8)'); gr.addColorStop(1,'rgba(255,255,255,0)');
+  cx.fillStyle=gr; cx.fillRect(0,0,64,64);
+  const pm=new THREE.PointsMaterial({size:.16,vertexColors:true,map:new THREE.CanvasTexture(dot),transparent:true,depthWrite:false,blending:THREE.AdditiveBlending});
+  group.add(new THREE.Points(g,pm));
+  const lp=[], lc=[];
+  for(let i=0;i<N;i++) for(let j=i+1;j<N;j++){
+    if(pts[i].distanceTo(pts[j])<1.15){
+      lp.push(pts[i].x,pts[i].y,pts[i].z,pts[j].x,pts[j].y,pts[j].z);
+      const a=palette[i%4], b=palette[j%4]; lc.push(a.r,a.g,a.b,b.r,b.g,b.b);
+    }
+  }
+  const lg=new THREE.BufferGeometry();
+  lg.setAttribute('position',new THREE.Float32BufferAttribute(lp,3));
+  lg.setAttribute('color',new THREE.Float32BufferAttribute(lc,3));
+  group.add(new THREE.LineSegments(lg,new THREE.LineBasicMaterial({vertexColors:true,transparent:true,opacity:.28,blending:THREE.AdditiveBlending})));
+
+  function size(){
+    const w=canvas.clientWidth,h=canvas.clientHeight;
+    renderer.setSize(w,h,false); camera.aspect=w/h; camera.updateProjectionMatrix();
+    group.position.x = w>900 ? 2.6 : 0; group.position.y = w>900 ? 0 : 1.2;
+    group.scale.setScalar(w>900?1:.8);
+  }
+  size(); addEventListener('resize',size);
+  let mx=0,my=0; addEventListener('pointermove',e=>{mx=e.clientX/innerWidth-.5;my=e.clientY/innerHeight-.5;});
+  let visible=true; new IntersectionObserver(([e])=>visible=e.isIntersecting).observe(canvas);
+  function loop(t){
+    if(visible){
+      group.rotation.y=t*.00012+mx*.6; group.rotation.x=my*.4+Math.sin(t*.0003)*.1;
+      pm.size=.15+Math.sin(t*.002)*.02;
+      renderer.render(scene,camera);
+    }
+    if(!reduce) requestAnimationFrame(loop);
+  }
+  reduce?renderer.render(scene,camera):requestAnimationFrame(loop);
+})();
+
+/* ---------- Smooth scroll (Lenis) + GSAP animations ---------- */
+let lenis=null;
+if(!reduce && typeof Lenis!=='undefined'){
+  lenis=new Lenis({lerp:.09,smoothWheel:true});
+  if(hasGSAP){
+    lenis.on('scroll',()=>ScrollTrigger.update());
+    gsap.ticker.add(t=>lenis.raf(t*1000)); gsap.ticker.lagSmoothing(0);
+  } else { (function raf(t){lenis.raf(t);requestAnimationFrame(raf);})(performance.now()); }
+}
+document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{
+  const t=document.querySelector(a.getAttribute('href')); if(!t) return;
+  e.preventDefault(); lenis?lenis.scrollTo(t,{offset:-20,duration:1.4}):t.scrollIntoView({behavior:reduce?'auto':'smooth'});
+}));
+
+if(hasGSAP && typeof ScrollTrigger!=='undefined'){
+  gsap.registerPlugin(ScrollTrigger);
+  if(!reduce){
+    const tl=gsap.timeline({delay:.15});
+    tl.from('.badge',{y:20,opacity:0,duration:.6,ease:'power3.out'})
+      .from('h1 .ch',{yPercent:115,rotate:8,opacity:0,duration:.9,ease:'expo.out',stagger:.025},'-=.3')
+      .from('.hero-sub, .actions',{y:24,opacity:0,duration:.8,ease:'power3.out',stagger:.12},'-=.6')
+      .from('#net',{opacity:0,scale:.9,duration:1.6,ease:'power2.out'},0)
+      .add(()=>party(.5,.55),'-=.4');
+
+    gsap.utils.toArray('.reveal').forEach(el=>{
+      gsap.from(el,{y:50,opacity:0,duration:1,ease:'power3.out',scrollTrigger:{trigger:el,start:'top 88%'}});
+    });
+    gsap.from('.tile',{y:60,opacity:0,duration:.9,ease:'power3.out',stagger:.08,scrollTrigger:{trigger:'.bento',start:'top 80%'}});
+    gsap.from('.award',{y:60,opacity:0,rotateX:-20,duration:.9,ease:'power3.out',stagger:.08,scrollTrigger:{trigger:'.awards',start:'top 82%'}});
+    gsap.from('.cheer-btn',{scale:.4,opacity:0,duration:.6,ease:'back.out(2)',stagger:.05,scrollTrigger:{trigger:'#cheerBtns',start:'top 85%'}});
+    gsap.to('.draw',{strokeDashoffset:0,duration:2.2,ease:'power2.inOut',stagger:.3,scrollTrigger:{trigger:'.chart',start:'top 75%'}});
+    gsap.to('.area',{opacity:1,duration:1.2,delay:1.4,scrollTrigger:{trigger:'.chart',start:'top 75%'}});
+    gsap.to('.marquee',{xPercent:-6,ease:'none',scrollTrigger:{trigger:'.marquee',scrub:true}});
+
+    // pinned horizontal scroll for release notes (desktop)
+    ScrollTrigger.matchMedia({
+      '(min-width: 769px)':function(){
+        const track=document.querySelector('.h-track');
+        const dist=()=>track.scrollWidth-innerWidth+24;
+        gsap.to(track,{x:()=>-dist(),ease:'none',scrollTrigger:{trigger:'#release',pin:true,scrub:1,end:()=>'+='+dist(),invalidateOnRefresh:true}});
+      },
+      '(max-width: 768px)':function(){
+        gsap.utils.toArray('.rcard').forEach(c=>gsap.from(c,{y:40,opacity:0,duration:.8,ease:'power3.out',scrollTrigger:{trigger:c,start:'top 90%'}}));
+      }
+    });
+  } else {
+    document.querySelectorAll('.draw').forEach(p=>p.style.strokeDashoffset=0);
+    document.querySelector('.area').setAttribute('opacity',1);
+  }
+} else {
+  document.querySelectorAll('.draw').forEach(p=>p.style.strokeDashoffset=0);
+  const a=document.querySelector('.area'); if(a) a.setAttribute('opacity',1);
+}
+
+/* ---------- Count-up stats ---------- */
+const io=new IntersectionObserver(es=>es.forEach(e=>{
+  if(!e.isIntersecting) return;
+  const el=e.target, to=+el.dataset.count; io.unobserve(el);
+  if(reduce){el.textContent=to.toLocaleString();return;}
+  const t0=performance.now();
+  (function step(t){const p=Math.min((t-t0)/1600,1); el.textContent=Math.round(to*(1-Math.pow(1-p,4))).toLocaleString(); if(p<1) requestAnimationFrame(step);})(t0);
+}),{threshold:.5});
+document.querySelectorAll('[data-count]').forEach(el=>io.observe(el));
+
+/* ---------- Cursor glow, spotlight tiles, magnetic buttons, tilt ---------- */
+if(finePointer && !reduce){
+  const cur=document.querySelector('.cursor');
+  if(hasGSAP){
+    const xTo=gsap.quickTo(cur,'x',{duration:.6,ease:'power3'}), yTo=gsap.quickTo(cur,'y',{duration:.6,ease:'power3'});
+    addEventListener('pointermove',e=>{xTo(e.clientX);yTo(e.clientY);});
+    document.querySelectorAll('.magnetic').forEach(b=>{
+      b.addEventListener('pointermove',e=>{const r=b.getBoundingClientRect(); gsap.to(b,{x:(e.clientX-r.left-r.width/2)*.3,y:(e.clientY-r.top-r.height/2)*.4,duration:.4,ease:'power3.out'});});
+      b.addEventListener('pointerleave',()=>gsap.to(b,{x:0,y:0,duration:.7,ease:'elastic.out(1,.4)'}));
+    });
+  }
+  document.querySelectorAll('.tile').forEach(t=>t.addEventListener('pointermove',e=>{
+    const r=t.getBoundingClientRect(); t.style.setProperty('--mx',(e.clientX-r.left)+'px'); t.style.setProperty('--my',(e.clientY-r.top)+'px');
+  }));
+  if(typeof VanillaTilt!=='undefined'){
+    VanillaTilt.init(document.querySelectorAll('.tilt'),{max:8,speed:600,glare:true,'max-glare':.15,scale:1.02});
+    VanillaTilt.init(document.querySelectorAll('.award'),{max:10,speed:600,glare:true,'max-glare':.2});
+  }
+}
+
+/* ---------- Quote generator with typewriter ---------- */
+const quotes=[
+ "Behind every successful model is a man who restarted the kernel 47 times. 🔄",
+ "Real men don't cry. They just watch the validation loss go up. 😭📈",
+ "My code doesn't have bugs. It has surprise features. 🎁🐛",
+ "I'm not lazy, I'm in low-power inference mode. 🔋😴",
+ "Coffee: because 'AI engineer fueled by sleep' doesn't exist. ☕",
+ "Me: one small fix. Git: 47 files changed. 😐",
+ "Some men lift weights. We lift tensors. 💪🧮",
+ "My weekend plan: train the model. The model's weekend plan: overfit. 🙃",
+ "'Just a quick experiment,' said the man 600 GPU hours ago. ⏳🔥",
+ "Artificial intelligence is no match for natural stubbornness. 🐐",
+ "There are 2 hard things in AI: naming things, cache invalidation and off-by-one errors. 🤓",
+ "I don't always test my code, but when I do, I do it in production. 😎🚨",
+ "Keep calm and lower the learning rate. 🧘‍♂️",
+ "A man's best friend? Ctrl+Z. 🐶⌨️",
+ "I told the model to be more human. Now it's asking for a raise. 💸🤖",
+ "Our team doesn't have problems. We have unlabeled opportunities. 🏷️",
+ "Hard work beats talent when talent doesn't read the docs. 📚💪",
+ "Stand-up: where we stand up to say 'same as yesterday'. 🧍‍♂️🔁",
+ "Why did the neural network go to therapy? Too many unresolved layers. 🧅",
+ "Dear GPU, I'm sorry for what I put you through this year. ❤️🖥️",
+ "Legends never die. They just get deprecated with a warning. ⚠️😂",
+ "Today's forecast: 100% chance of awesome men in the AI team. ☀️🦸‍♂️",
+ "Even transformers have attention limits. Take a break, legend. 👀",
+ "Ctrl+C, Ctrl+V: the most powerful model in the building. 📋😂",
+ "My model is 99% accurate. The 1% is every demo to leadership. 🎤😬"
+];
+let lastQ=0, typing=null;
+const qEl=document.getElementById('quote'), qm=document.getElementById('qmeta');
+function typeQuote(text){
+  clearInterval(typing);
+  if(reduce){qEl.textContent=text;return;}
+  const chars=Array.from(text); let i=0;
+  qEl.innerHTML='<span class="cur"></span>';
+  typing=setInterval(()=>{
+    i++; qEl.textContent=chars.slice(0,i).join('');
+    const c=document.createElement('span'); c.className='cur'; qEl.appendChild(c);
+    if(i>=chars.length){clearInterval(typing); setTimeout(()=>c.remove(),1200);}
+  },22);
+}
+document.getElementById('genBtn').addEventListener('click',e=>{
+  let n; do{n=Math.floor(Math.random()*quotes.length);}while(n===lastQ); lastQ=n;
+  typeQuote(quotes[n]);
+  qm.textContent=`confidence: ${(95+Math.random()*4.9).toFixed(1)}% · temperature: ${(Math.random()*1.2).toFixed(1)} · tokens: ${'☕'.repeat(1+Math.floor(Math.random()*4))}`;
+  burstAt(e.currentTarget,'😂');
+});
+document.getElementById('copyBtn').addEventListener('click',async()=>{
+  try{ await navigator.clipboard.writeText(quotes[lastQ]+" Happy Men's Day, Intuit AI Team! 🎉"); toast('Copied. Paste it in the team chat 😄'); }
+  catch(err){ toast('Copy is blocked here. Select the quote and copy it 🙏'); }
+});
+
+/* ---------- Awards flip ---------- */
+document.querySelectorAll('.award').forEach(a=>{
+  a.setAttribute('aria-pressed','false');
+  a.addEventListener('click',()=>{
+    const f=a.classList.toggle('flipped'); a.setAttribute('aria-pressed',f);
+    if(f) burstAt(a,'🏆');
+  });
+});
+
+/* ---------- Cheer wall ---------- */
+const cheers=[['👏','Applause'],['💪','Strong'],['🔥','On fire'],['🫡','Respect'],['🍻','Cheers'],['🚀','Ship it'],['🤖','Beep boop'],['💙','Love']];
+let store={}; try{store=JSON.parse(localStorage.getItem('mensday-cheers')||'{}');}catch(e){}
+const cw=document.getElementById('cheerBtns'), totalEl=document.getElementById('total');
+const sum=()=>Object.values(store).reduce((a,b)=>a+b,0);
+totalEl.textContent=sum();
+cheers.forEach(([em,label])=>{
+  const b=document.createElement('button'); b.className='cheer-btn';
+  b.innerHTML=`<span class="em">${em}</span><span class="ct">${store[em]||0}</span>`;
+  b.setAttribute('aria-label',`Send ${label} ${em}`);
+  b.addEventListener('click',()=>{
+    store[em]=(store[em]||0)+1; b.querySelector('.ct').textContent=store[em];
+    const tot=sum(); totalEl.textContent=tot;
+    try{localStorage.setItem('mensday-cheers',JSON.stringify(store));}catch(e){}
+    burstAt(b,em);
+    if(hasGSAP&&!reduce) gsap.fromTo(b.querySelector('.em'),{scale:1.5},{scale:1,duration:.5,ease:'elastic.out(1,.4)'});
+    if(tot%25===0){party(.5,.5,true);sideCannons();toast(`${tot} cheers! The team can feel it 🥳`);}
+  });
+  cw.appendChild(b);
+});
+
+let tt; function toast(msg){const t=document.getElementById('toast'); t.textContent=msg; t.classList.add('show'); clearTimeout(tt); tt=setTimeout(()=>t.classList.remove('show'),2600);}
+</script>
+</body>
+</html>
